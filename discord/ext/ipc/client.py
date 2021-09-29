@@ -3,6 +3,7 @@ import logging
 import typing
 
 import aiohttp
+from contextlib import suppress
 from discord.ext.ipc.errors import *
 
 log = logging.getLogger(__name__)
@@ -102,7 +103,8 @@ class Client:
             "headers": {"Authorization": self.secret_key},
         }
 
-        await self.websocket.send_json(payload)
+        with suppress(RuntimeError):  # for uvloop
+            await self.websocket.send_json(payload)
 
         log.debug("Client > %r", payload)
 

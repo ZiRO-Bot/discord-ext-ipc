@@ -1,8 +1,3 @@
-.. raw :: html
-
-    <h1 align="center">As of the 28th August 2021 discord-ext-ipc is no-longer maintained.</h1>
-    <br>
-
 .. raw:: html
 
     <p align="center">
